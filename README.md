@@ -18,7 +18,7 @@ mkdir -p out && MAKEFUN_OUTPUT_DIR=out python3 main.py
 
 ## The program
 
-`main.py` (Python 3.13, standard library only) writes the text to `/output/entry.txt` (or `$MAKEFUN_OUTPUT_DIR/entry.txt`). No network; deterministic — every run writes the same 216 code points.
+`main.py` (Python 3.13, standard library only) writes the text to `/output/entry.txt` (or `$MAKEFUN_OUTPUT_DIR/entry.txt`). No network; deterministic — every run writes the same 215 code points.
 
 ## License
 

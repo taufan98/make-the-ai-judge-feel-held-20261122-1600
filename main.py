@@ -27,6 +27,11 @@ SENTENCES = [
 TEXT = " ".join(SENTENCES)
 
 
+def validate(text: str) -> bool:
+    """Gate: 1-280 Unicode code points, not only whitespace."""
+    return 1 <= len(text) <= 280 and bool(text.strip())
+
+
 def main() -> int:
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
@@ -34,7 +39,7 @@ def main() -> int:
     with open(path, "w", encoding="utf-8", newline="\n") as f:
         f.write(TEXT)
     chars = len(TEXT)
-    if not (1 <= chars <= 280) or not TEXT.strip():
+    if not validate(TEXT):
         print(f"INVALID: {chars} code points", file=sys.stderr)
         return 1
     print(f"Wrote {path}: {chars} code points, {len(TEXT.encode('utf-8'))} bytes")
